@@ -1,5 +1,12 @@
 import axios from 'axios';
 
+// Root handler for GET /
+export const config = {
+  api: {
+    bodyParser: true,
+  },
+};
+
 export default async function handler(req, res) {
   // CORS settings
   res.setHeader('Access-Control-Allow-Credentials', true);
