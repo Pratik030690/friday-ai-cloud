@@ -1,18 +1,20 @@
 {
-  "functions": {
-    "api/friday.js": {
-      "maxDuration": 10
-    }
-  },
-  "headers": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Credentials", "value": "true" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
-      ]
+      "src": "api/friday.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/friday",
+      "dest": "/api/friday.js",
+      "methods": ["GET", "POST", "OPTIONS"]
+    },
+    {
+      "src": "/",
+      "dest": "/api/friday.js"
     }
   ]
 }
